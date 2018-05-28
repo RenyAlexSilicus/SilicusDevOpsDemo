@@ -14,9 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.microsoft.azure.mobile.MobileCenter;
-import com.microsoft.azure.mobile.analytics.Analytics;
-import com.microsoft.azure.mobile.crashes.Crashes;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        MobileCenter.start(getApplication(), "f944acfc-e243-4198-afaa-34d631c8b569",
+        AppCenter.start(getApplication(), "f944acfc-e243-4198-afaa-34d631c8b569",
                 Analytics.class, Crashes.class);
+
+        Analytics.trackEvent("MainActivity");
 
         setContentView(R.layout.activity_main);
 
